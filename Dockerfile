@@ -1,14 +1,11 @@
-# ベースイメージを指定
+# set base image (host OS)
 FROM python:3.11-slim
 
-# 作業ディレクトリを設定
+# set the working directory in the container
 WORKDIR /app
 
-# 必要なパッケージをインストール
-COPY requirements.txt requirements.txt
+# install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# アプリケーションのソースコードをコピー
+# copy the content of the local directory to the working directory
 COPY . .
-
-CMD [ "/bin/bash" ]

@@ -1,9 +1,8 @@
 services:
-  app:
+  rag_chatbot:
     build: .
-    container_name: chroma_rag_app
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - .:/app
-    command: ["tail", "-f", "/dev/null"]
+    tty: true
+    container_name: chroma_rag_021
+    working_dir: /app
